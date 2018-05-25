@@ -27,7 +27,7 @@ A game based on obstacles from American Ninja Warrior
 - [https://docs.google.com/document/d/1o3nvfIkHIpFIxGlSAXaaLVw8AM-lCR7TxUZPCKo-g70/edit]
 
 ## Project Management:
-- link [https://trello.com/americanninjawarriors]
+- [https://trello.com/americanninjawarriors]
 
 ## Wireframing
 [https://balsamiq.cloud/s1bjm9h/pk7op73/r2278]
