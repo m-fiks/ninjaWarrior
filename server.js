@@ -13,15 +13,26 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+
+//static path
+app.use(express.static(path.join(__dirname, "/public")));
+=======
 // Requiring our models for syncing
 var db = require('./models')
 
+
 // Sets up the Express app to handle data parsing
+
+
+app.get("/", (req,res) => {
+    res.sendFile(path.join(__dirname, "/public/assets/game.html"));
+})
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
+
 
 // Static directory
 // app.use(express.static("public"));
