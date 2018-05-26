@@ -1,8 +1,8 @@
 {
     "development": {
       "username": "root",
-      "password": null,
-      "database": "put data base here",
+      "password": "",
+      "database": "ninjawarrior_db",
       "host": "localhost",
       "dialect": "mysql"
     },
