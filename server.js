@@ -8,11 +8,11 @@ app = express();
 const PORT = process.env.PORT || 8080;
 
 //static path
-app.use(express.static(path.join(__dirname, "/assets")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 
 app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, "/assets/game.html"));
+    res.sendFile(path.join(__dirname, "/public/assets/game.html"));
 })
 
 
