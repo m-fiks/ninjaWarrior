@@ -19,8 +19,7 @@
             physics: {
                 default: 'arcade',
                 arcade: {
-                    gravity:{y: 300},
-                    debug: false
+                    gravity:{y: 300}
                 }
             },
             scene: {
@@ -38,51 +37,93 @@
         //load the images
          function preload ()
         {
-            this.load.spritesheet('dude', './running.png', { frameWidth: 70, frameHeight: 48 });
-        }
+            this.load.image('sky', './sky.png');
+            this.load.image('ground', './platformg.png');
+            this.load.image('platform', './platform.png');
+            this.load.spritesheet('dude', './running.png', { frameWidth: 36, frameHeight: 48 });
+        };
 
         function create () {
-            player = this.physics.add.sprite(100,450, 'dude');
+            //ORDER HERE IS IMPORTANT
+            //adding sky
+            this.add.image(400, 300, 'sky');
             
+            platforms = this.physics.add.staticGroup();
+            ground = this.physics.add.staticGroup();
+            //create the ground on bottom
+            ground.create(400,568, 'ground').setScale(2).refreshBody();
 
+            //create random platforms
+            platforms.create(700,390, 'platform');
+            platforms.create(50,250, 'platform');
+            platforms.create(750, 200, 'platform');
+
+            //adding player sprite in bottom left corner, using physics to make dynamic
+            player = this.physics.add.sprite(100,450, 'dude');
             player.setBounce(0.2);
-            player.setCollideWorldBounds(true);
 
-             
-        
-        }
+            //check to see if collide with anything
+            player.setCollideWorldBounds(true);
+            
+            //adding animation to player
+            //global object
+
+            //standard face foward position
+            this.anims.create({
+                key: 'turn',
+                frames: [ { key: 'dude', frame: 9 } ],
+                frameRate: 20
+            });
+
+            //run right
+            this.anims.create({
+                key: 'right',
+                frames: this.anims.generateFrameNumbers('dude', { start: 9, end: 11 }),
+                frameRate: 10,
+                repeat: -1
+            });
+
+            //run left
+            this.anims.create({
+                key: 'left',
+                frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 2 }),
+                frameRate: 10,
+                repeat: -1
+            })
+
+            //check to see if player hits ground
+            this.physics.add.collider(player, platforms);
+            this.physics.add.collider(player, ground);
+        };
 
         function update () {
-// <!-- 
-//             let cursors;
-//         cursors = this.input.keyboard.createCursorKeys();
-            
+        //let user control with arrow keys    
+        let cursors;
+        cursors = this.input.keyboard.createCursorKeys();
+    
+        if (cursors.left.isDown)
+            {
+                player.setVelocityX(-160);
+                player.anims.play('left', true);
+            }
+        else if (cursors.right.isDown)
+            {
+                player.setVelocityX(125);
+                player.anims.play('right', true);
+            }
+        else
+            {
+                player.setVelocityX(0);
+                player.anims.play('turn');
+            }
+        if (cursors.up.isDown)
+            {
+                player.setVelocityY(-200);
+            }
 
-//         if (cursors.left.isDown)
-//             {
-//                 player.setVelocityX(-160);
+        };
 
-//                 player.anims.play('left', true);
-//             }
-//         else if (cursors.right.isDown)
-//             {
-//                 player.setVelocityX(160);
 
-//                 player.anims.play('right', true);
-//             }
-//         else
-//             {
-//                 player.setVelocityX(0);
-
-//                 player.anims.play('turn');
-//             }
-
-//         if (cursors.up.isDown && player.body.touching.down)
-//             {
-//                 player.setVelocityY(-330);
-//             } -->
-
-        }
     </script>
     
 </body>
