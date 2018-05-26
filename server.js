@@ -9,7 +9,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const expressHbs = require("express-handlebars");
 
-app = express();
+const app = express();
 
 const PORT = process.env.PORT || 8080;
 
@@ -24,11 +24,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname,"./public/assets/game.html"))
+})
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
 
 
 
