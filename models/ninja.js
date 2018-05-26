@@ -3,8 +3,8 @@ module.exports = function(sequelize, DataTypes) {
 
     //Table values
     //Edit below
-      text: DataTypes.STRING,
-      complete: DataTypes.BOOLEAN
+      information: DataTypes.STRING,
+      scores: DataTypes.INTEGER
     });
     return Ninja;
 };
