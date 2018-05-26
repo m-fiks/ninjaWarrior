@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/m-fiks/ninjaWarrior#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "require-path": "^0.3.0",
+    "sequelize": "^4.37.10"
   }
 }
