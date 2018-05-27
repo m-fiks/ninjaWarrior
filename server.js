@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 
 //static path
 app.use(express.static(path.join(__dirname, "/public")));
-=======
+
 // Requiring our models for syncing
 var db = require('./models')
 
