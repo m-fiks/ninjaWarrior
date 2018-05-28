@@ -4,4 +4,4 @@ INSERT INTO ninjaInfo (information, scores) VALUES (' ', '');
 INSERT INTO ninjaInfo (information, scores) VALUES (' ', '');
 INSERT INTO ninjaInfo (information, scores) VALUES (' ', '');
 
-SELECT *FROM ninjawarrior_db.ninjaInfo;
+SELECT * FROM ninjawarrior_db.ninjaInfo;

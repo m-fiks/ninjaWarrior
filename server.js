@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 
 //static path
 app.use(express.static(path.join(__dirname, "/public")));
-=======
+
 // Requiring our models for syncing
 var db = require('./models')
 
@@ -44,13 +44,15 @@ app.get('/',function(req,res){
 // =============================================================
 // require("./routes/api-routes.js")(app);
 
+app.listen(PORT, () => {
+    console.log(`listening on 8080`)
+})
 
-
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
-});
+// db.sequelize.sync().then(function() {
+//     app.listen(PORT, function() {
+//       console.log("App listening on PORT " + PORT);
+//     });
+// });
   
 
 // testing branch merges
