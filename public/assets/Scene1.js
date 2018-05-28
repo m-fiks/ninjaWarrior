@@ -1,11 +1,12 @@
+let player;
+let score = 0;
+let scoreText = "";
+
+
 class Scene1 extends Phaser.Scene {
     constructor() {
         super({key:"Scene1"});
     }
-
-// let player;
-// let score = 0;
-// let scoreText;
 
 //load the images
 preload () {
@@ -15,13 +16,14 @@ preload () {
     this.load.spritesheet('dude', './assets/running.png', { frameWidth: 36, frameHeight: 48 });
 };
 
+
 create () {
     //ORDER HERE IS IMPORTANT
     //adding sky
     this.add.image(400, 300, 'sky');
     
-    platforms = this.physics.add.staticGroup();
-    ground = this.physics.add.staticGroup();
+    let platforms = this.physics.add.staticGroup();
+    let ground = this.physics.add.staticGroup();
     //create the ground on bottom
     ground.create(400,568, 'ground').setScale(2).refreshBody();
     //create random platforms
