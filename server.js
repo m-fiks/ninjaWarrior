@@ -25,7 +25,7 @@ var db = require('./models')
 
 
 app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, "/public/assets/game.html"));
+    res.sendFile(path.join(__dirname, "/public/assets/index.html"));
 })
 
 // parse application/x-www-form-urlencoded
@@ -37,9 +37,6 @@ app.use(bodyParser.json());
 // Static directory
 // app.use(express.static("public"));
 
-app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname,"./public/assets/game.html"))
-})
 // Routes
 // =============================================================
 // require("./routes/api-routes.js")(app);
