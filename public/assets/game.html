@@ -11,7 +11,6 @@
 <body>
 
     <script type="text/javascript">
-
            const config = {
             type: Phaser.AUTO,
             width: 800,
@@ -19,7 +18,8 @@
             physics: {
                 default: 'arcade',
                 arcade: {
-                    gravity:{y: 300}
+                    gravity:{y: 300},
+                    debug: false
                 }
             },
             scene: {
@@ -28,12 +28,10 @@
                 update: update
             }
         };
-
         const game = new Phaser.Game(config);
         let player;
         let score = 0;
         let scoreText;
-
         //load the images
          function preload ()
         {
@@ -42,7 +40,6 @@
             this.load.image('platform', './assets/platform.png');
             this.load.spritesheet('dude', './assets/running.png', { frameWidth: 36, frameHeight: 48 });
         };
-
         function create () {
             //ORDER HERE IS IMPORTANT
             //adding sky
@@ -52,50 +49,42 @@
             ground = this.physics.add.staticGroup();
             //create the ground on bottom
             ground.create(400,568, 'ground').setScale(2).refreshBody();
-
             //create random platforms
             platforms.create(700,390, 'platform');
             platforms.create(50,250, 'platform');
             platforms.create(750, 200, 'platform');
-
             //adding player sprite in bottom left corner, using physics to make dynamic
             player = this.physics.add.sprite(100,450, 'dude');
             player.setBounce(0.2);
-
             //check to see if collide with anything
             player.setCollideWorldBounds(true);
             
             //adding animation to player
             //global object
-
             //standard face foward position
             this.anims.create({
                 key: 'turn',
-                frames: [ { key: 'dude', frame: 9 } ],
+                frames: [ { key: 'dude', frame: 14 } ],
                 frameRate: 20
             });
-
             //run right
             this.anims.create({
                 key: 'right',
-                frames: this.anims.generateFrameNumbers('dude', { start: 9, end: 11 }),
+                frames: this.anims.generateFrameNumbers('dude', { start: 2, end: 4 }),
                 frameRate: 10,
                 repeat: -1
             });
-
             //run left
             this.anims.create({
                 key: 'left',
-                frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 2 }),
+                frames: this.anims.generateFrameNumbers('dude', { start: 6, end: 9 }),
                 frameRate: 10,
                 repeat: -1
             })
-
             //check to see if player hits ground
             this.physics.add.collider(player, platforms);
             this.physics.add.collider(player, ground);
         };
-
         function update () {
         //let user control with arrow keys    
         let cursors;
@@ -120,9 +109,7 @@
             {
                 player.setVelocityY(-200);
             }
-
         };
-
     </script>
     
 </body>
