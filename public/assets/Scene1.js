@@ -10,8 +10,12 @@ class Scene1 extends Phaser.Scene {
 
 //load the images
 preload () {
-    this.load.image('sky', './assets/sky.png');
-    this.load.image('ground', './assets/platformg.png');
+    //sky needs to be larger to fit the world bounds
+    //this.load.image('sky', './assets/sky.png');
+    this.load.tilemapTiledJSON('map', './assets/map.json')
+    this.load.spritesheet('tiles', './assets/tiles.png',  {frameWidth: 70, frameHeight: 70})
+    
+    //this.load.image('ground', './assets/platformg.png');
     this.load.image('platform', './assets/platform.png');
     this.load.spritesheet('dude', './assets/running.png', { frameWidth: 36, frameHeight: 48 });
 };
@@ -20,16 +24,35 @@ preload () {
 create () {
     //ORDER HERE IS IMPORTANT
     //adding sky
-    this.add.image(400, 300, 'sky');
+    //this.add.image(400, 300, 'sky');
     
+    //adding tiles/map
+    let map = this.make.tilemap({key:'map'});
+
+    //tiles for ground
+    let groundTiles = map.addTilesetImage('tiles');
+
+    let groundLayer = map.createDynamicLayer('World', groundTiles, 0,0 )
+
+    // the player will collide with this layer
+    groundLayer.setCollisionByExclusion([-1]);
+
+    this.physics.world.bounds.width = groundLayer.width;
+    this.physics.world.bounds.height = groundLayer.height;
+
+
+    //create platforms
     let platforms = this.physics.add.staticGroup();
-    let ground = this.physics.add.staticGroup();
+    //let ground = this.physics.add.staticGroup();
     //create the ground on bottom
-    ground.create(400,568, 'ground').setScale(2).refreshBody();
+    //ground.create(400,568, 'ground').setScale(2).refreshBody();
+
     //create random platforms
     platforms.create(700,390, 'platform');
     platforms.create(50,250, 'platform');
     platforms.create(750, 200, 'platform');
+
+
     //adding player sprite in bottom left corner, using physics to make dynamic
     
     player = this.physics.add.sprite(100,450, 'dude');
@@ -59,9 +82,16 @@ create () {
         frameRate: 10,
         repeat: -1
     })
-    //check to see if player hits ground
-    this.physics.add.collider(player, platforms);
-    this.physics.add.collider(player, ground);
+    // //check to see if player hits ground
+    // this.physics.add.collider(player, platforms);
+    this.physics.add.collider(player, groundLayer);
+   
+    //camera business
+    this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
+    //follow player
+    this.cameras.main.startFollow(player);
+
+    //this.cameras.main.setBackgroundColor('#ccccff'); 
 };
 
 update () {
