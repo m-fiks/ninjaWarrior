@@ -2,6 +2,8 @@ let player;
 let score = 0;
 let scoreText = "";
 
+// I managed to restart the same scene by doing:
+// this.scene.manager.bootScene(this);
 
 class Scene1 extends Phaser.Scene {
     constructor() {
@@ -12,12 +14,12 @@ class Scene1 extends Phaser.Scene {
 preload () {
     //sky needs to be larger to fit the world bounds
     //this.load.image('sky', './assets/sky.png');
-    this.load.tilemapTiledJSON('map', './assets/map.json')
-    this.load.spritesheet('tiles', './assets/tiles.png',  {frameWidth: 70, frameHeight: 70})
+    this.load.tilemapTiledJSON('map', './assets/images/map.json')
+    this.load.spritesheet('tiles', './assets/images/tiles.png',  {frameWidth: 70, frameHeight: 70})
     
     //this.load.image('ground', './assets/platformg.png');
-    this.load.image('platform', './assets/platform.png');
-    this.load.spritesheet('dude', './assets/running.png', { frameWidth: 36, frameHeight: 48 });
+    this.load.image('platform', './assets/images/platform.png');
+    this.load.spritesheet('dude', './assets/images/running.png', { frameWidth: 36, frameHeight: 48 });
 };
 
 
@@ -40,7 +42,6 @@ create () {
     this.physics.world.bounds.width = groundLayer.width;
     this.physics.world.bounds.height = groundLayer.height;
 
-
     //create platforms
     let platforms = this.physics.add.staticGroup();
     //let ground = this.physics.add.staticGroup();
@@ -48,9 +49,9 @@ create () {
     //ground.create(400,568, 'ground').setScale(2).refreshBody();
 
     //create random platforms
-    platforms.create(700,390, 'platform');
-    platforms.create(50,250, 'platform');
-    platforms.create(750, 200, 'platform');
+    platforms.create(900,180, 'platform');
+    platforms.create(1450,200, 'platform');
+    // platforms.create(750, 200, 'platform');
 
 
     //adding player sprite in bottom left corner, using physics to make dynamic
@@ -83,7 +84,7 @@ create () {
         repeat: -1
     })
     // //check to see if player hits ground
-    // this.physics.add.collider(player, platforms);
+    this.physics.add.collider(player, platforms);
     this.physics.add.collider(player, groundLayer);
    
     //camera business
@@ -91,7 +92,7 @@ create () {
     //follow player
     this.cameras.main.startFollow(player);
 
-    //this.cameras.main.setBackgroundColor('#ccccff'); 
+    this.cameras.main.setBackgroundColor('#00a9ff'); 
 };
 
 update () {
@@ -116,7 +117,7 @@ else
     }
 if (cursors.up.isDown)
     {
-        player.setVelocityY(-200);
+        player.setVelocityY(-85);
     }
 };
     
