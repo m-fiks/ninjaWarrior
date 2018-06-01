@@ -8,6 +8,8 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const expressHbs = require("express-handlebars");
+const db = require('./models')
+
 
 const app = express();
 
@@ -18,7 +20,6 @@ const PORT = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Requiring our models for syncing
-var db = require('./models')
 
 
 // Sets up the Express app to handle data parsing
