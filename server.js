@@ -8,6 +8,8 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const expressHbs = require("express-handlebars");
+const db = require('./models')
+
 
 const app = express();
 
@@ -18,7 +20,6 @@ const PORT = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Requiring our models for syncing
-var db = require('./models')
 
 
 // Sets up the Express app to handle data parsing
@@ -26,6 +27,17 @@ var db = require('./models')
 app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, "/public/assets/index.html"));
 })
+
+// app.get("/", (req,res) => {
+//     res.sendFile(path.join(__dirname, "/public/assets/index.html"));
+// })
+
+
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+//app.set("view engine", "handlebars");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +53,9 @@ app.use(bodyParser.json());
 
 // Routes
 // =============================================================
-// require("./routes/api-routes.js")(app);
+require("./routes/apiroutes.js")(app);
+
+require("./routes/html-routes.js")(app);
 
 // app.listen(PORT, () => {
 //     console.log(`listening on 8080`)
