@@ -23,7 +23,6 @@ var db = require('./models')
 
 // Sets up the Express app to handle data parsing
 
-
 app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, "/public/assets/index.html"));
 })
@@ -33,6 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+// Handlebars
+//app.engine("handlebars", expressHbs({ defaultLayout: "main" }));
+//app.set("view engine", "handlebars");
 
 // Static directory
 // app.use(express.static("public"));
