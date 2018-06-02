@@ -23,6 +23,9 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 // Sets up the Express app to handle data parsing
 
+app.get("/", (req,res) => {
+    res.sendFile(path.join(__dirname, "/public/assets/index.html"));
+})
 
 // app.get("/", (req,res) => {
 //     res.sendFile(path.join(__dirname, "/public/assets/index.html"));
@@ -32,15 +35,17 @@ app.use(express.static(path.join(__dirname, "/public")));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
+//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+//app.set("view engine", "handlebars");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+// Handlebars
+//app.engine("handlebars", expressHbs({ defaultLayout: "main" }));
+//app.set("view engine", "handlebars");
 
 // Static directory
 // app.use(express.static("public"));
