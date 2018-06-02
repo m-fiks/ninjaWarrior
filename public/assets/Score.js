@@ -79,3 +79,4 @@ class Score extends Phaser.Scene {
         this.game.state.start('HowToPlay');
     }
 };
+
