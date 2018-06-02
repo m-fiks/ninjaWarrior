@@ -1,7 +1,7 @@
 let player;
 let score = 0;
 let scoreText = "";
-
+let newScore = "";
 // I managed to restart the same scene by doing:
 // this.scene.manager.bootScene(this);
 
@@ -77,9 +77,12 @@ create () {
     scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
     scoreText.fixedToCamera = true;
 
-    this.input.on('pointerdown', function (event) {
+
+    //send to score screen
+    this.input.on("pointerdown", (event) => {
         this.scene.start("Score")
-    }, this);
+    },this);
+
 };
 
 update () {
@@ -127,7 +130,9 @@ if (cursors.up.isDown)
             data: data,
             dataType: "json",
         }).then((data) => {
-            console.log(data);
+            console.log(data.score);
+            //add data.score to db
+
         })
         game.destroy();
     }

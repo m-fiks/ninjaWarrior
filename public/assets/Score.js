@@ -1,3 +1,5 @@
+let allScores = "";
+
 class Score extends Phaser.Scene {
     constructor() {
         super({key:"Score"});
@@ -17,29 +19,29 @@ class Score extends Phaser.Scene {
     //buttons click events
 
     let scores = this.add.text(250, 190, 'Scores', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
+    allScores = this.add.text(250, 220, 'HOWDY',  {font:"20px Impact", fill:'#ffffff'})
+    // let data = 
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '/api/allusers',
+    //     data: data,
+    //     dataType: 'json'
+    // }).then(function(data) {
+    //     console.log(data)
+    //     //$('').append()
+       
+    // });
 
-    let data = 
     $.ajax({
-        type: 'GET',
-        url: '/api/allusers',
-        data: data,
-        dataType: 'json'
-    }).then(function(data) {
-        console.log(data)
-        //$('').append()
-    });
-
-    // let scoreList = this.add.text(250, 225, {font:"20px Impact", fill:'#ffffff'}, function(){
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: '/api/allusers',
-    //         data: data,
-    //         dataType: 'json'
-    //     }).then(function(data) {
-    //         console.log(data)
-    //         //$('').append()
-    //     });
-    // })
+        type: "GET",
+        url: "/api/allusers",
+    }).then((data) => {
+        console.log(data);
+        data.forEach((elem) => {
+            console.log(elem.username, elem.score);
+            allScores.setText(elem.username, elem.score)
+        })
+    })
     
     this.input.on('pointerdown', function (event) {
         this.scene.start("mainMenu")
