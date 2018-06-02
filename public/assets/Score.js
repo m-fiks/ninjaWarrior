@@ -32,8 +32,6 @@ class Score extends Phaser.Scene {
        
     // });
 
-    //
-
     $.ajax({
         type: "GET",
         url: "/api/allusers",
