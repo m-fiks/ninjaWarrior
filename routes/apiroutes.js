@@ -8,7 +8,6 @@
 // Requiring our models
 var db = require("../models");
 
-
 //Routes
 //==============================================================
 module.exports = function(app){
@@ -22,16 +21,14 @@ module.exports = function(app){
 
     //send scores
     app.post('/api/scores', (req,res) => {
-        console.log(`scores: ${req.body}`);
+        console.log(`scores: ${req}`);
         res.send(req.body);
     })
+
     //Get specific character route
 
     //Add a ninja username 
 
     //Delete a ninja username
-
-
-
 
 }
