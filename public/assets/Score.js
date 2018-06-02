@@ -1,4 +1,5 @@
 let allScores = [];
+let allUsername = []; 
 
 class Score extends Phaser.Scene {
     constructor() {
@@ -18,8 +19,9 @@ class Score extends Phaser.Scene {
     let main = this.add.text(225,0, 'End!', {font:"40px Impact", fill: "#000000"});
     //buttons click events
 
-    let scores = this.add.text(250, 190, 'Scores', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
+    let scores = this.add.text(250, 190, 'Time(sec)', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
     allScores = this.add.text(250, 220, 'HOWDY',  {font:"20px Impact", fill:'#ffffff'})
+    allUsername = this.add.text(300, 220, 'JHJKH',  {font:"20px Impact", fill:'#ffffff'})
     // let data = 
     // $.ajax({
     //     type: 'POST',
@@ -37,12 +39,17 @@ class Score extends Phaser.Scene {
         url: "/api/allusers",
     }).then((data) => {
         console.log(data);
-        let newArray = [];
+        let usernameArray = [];
+        let scoreArray = [];
+
         data.forEach((elem) => {
-            console.log(elem.username, elem.score);
-            newArray.push(elem.username, elem.score)
+            // console.log(elem.username, elem.score);
+            usernameArray.push(elem.username)
+            scoreArray.push(elem.score)
+            console.log(elem.username)
         })
-        allScores.setText(newArray);
+        allScores.setText(scoreArray);
+        allUsername.setText(usernameArray)
     })
     
     this.input.on('pointerdown', function (event) {
