@@ -26,8 +26,8 @@ module.exports = function(app){
             username: req.body.username,
             score: req.body.score
         }).then((results) => {
-            console.log(results.id);
-            res.send("ok");
+            //console.log(results.id);
+            res.send(results.id);
             res.end();
         })
     })
