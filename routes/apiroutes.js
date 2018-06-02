@@ -20,6 +20,11 @@ module.exports = function(app){
         })
     });
 
+    //send scores
+    app.post('/api/scores', (req,res) => {
+        console.log(`scores: ${req.body}`);
+        res.send(req.body);
+    })
     //Get specific character route
 
     //Add a ninja username 

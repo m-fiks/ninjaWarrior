@@ -21,6 +21,7 @@ preload () {
 
 create () {
     //ORDER HERE IS IMPORTANT
+
     //adding sky
     let background = this.add.image(400, 300, 'main');
     //create platforms
@@ -74,15 +75,18 @@ create () {
 
     //score business
     scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-
-    this.input.on('pointerdown', function (event) {
-        this.scene.start("Score")
-    }, this);
-    
+    scoreText.fixedToCamera = true;
 };
 
 update () {
 //let user control with arrow keys    
+//timer
+this.timedEvent = this.time.addEvent({
+    delay: 5000,
+    callback: onEvent,
+    callbackScope: this
+})
+
 let cursors;
 cursors = this.input.keyboard.createCursorKeys();
 
@@ -107,6 +111,24 @@ if (cursors.up.isDown)
         score += 10;
         scoreText.setText('Score: ' + score);
     }
+
+    function onEvent () {
+        let data = {
+            "score": score
+        }
+        alert(`times up! your score is: ${score}`);
+        $.ajax({
+            type: "POST",
+            url: "/api/scores",
+            data: data,
+            dataType: "json",
+        }).then((data) => {
+            console.log(data);
+        })
+        game.destroy();
+    }
+
+   
 };
     
 };
