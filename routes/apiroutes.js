@@ -19,6 +19,20 @@ module.exports = function(app){
         })
     });
 
+    //add new user to db
+    app.post("/api/new", (req,res) => {
+        //console.log(req.body)
+        db.ninjaTables.create({
+            username: req.body.username,
+            score: req.body.score
+        }).then((results) => {
+            console.log(results.id);
+            res.send("ok");
+            res.end();
+        })
+    })
+    
+
     //send scores
     app.post('/api/scores', (req,res) => {
         console.log(req.body);

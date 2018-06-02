@@ -118,6 +118,7 @@ if (cursors.up.isDown)
             "score": score
         }
         $("#target").append(`times up! your score is: ${score}`);
+        
 
         $.ajax({
             type: "POST",
