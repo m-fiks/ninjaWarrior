@@ -7,7 +7,7 @@ scenes.push(Scene1);
 const config = {
     type: Phaser.AUTO,
     width: 850,
-    height: 500,
+    height: 650,
     
     physics: {
             default: 'arcade',
