@@ -18,7 +18,7 @@ class Score extends Phaser.Scene {
 
     let scores = this.add.text(250, 190, 'Scores', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
 
-    let data = 
+    
     $.ajax({
         type: 'GET',
         url: '/api/allusers',
