@@ -77,12 +77,6 @@ create () {
     scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
     scoreText.fixedToCamera = true;
 
-
-    //send to score screen
-    this.input.on("pointerdown", (event) => {
-        this.scene.start("Score")
-    },this);
-
 };
 
 update () {
@@ -123,7 +117,8 @@ if (cursors.up.isDown)
         let data = {
             "score": score
         }
-        alert(`times up! your score is: ${score}`);
+        $("#target").append(`times up! your score is: ${score}`);
+
         $.ajax({
             type: "POST",
             url: "/api/scores",
@@ -132,9 +127,13 @@ if (cursors.up.isDown)
         }).then((data) => {
             console.log(data.score);
             //add data.score to db
-
+            //send to score screen
+        
         })
-        game.destroy();
+
+        //send to scoreboard
+        this.scene.start("Score")
+        //game.destroy();
     }
    
 };
