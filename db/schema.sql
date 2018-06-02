@@ -12,4 +12,11 @@ CREATE TABLE ninjaTables
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO ninjaTables (username, score) VALUES ('salah', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja0', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja2', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja3', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja4', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja5', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja6', '200');
+INSERT INTO ninjaTables (username, score) VALUES ('ninja7', '200');
+
