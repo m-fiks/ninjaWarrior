@@ -127,7 +127,6 @@ if (cursors.up.isDown)
         })
         game.destroy();
     }
-
    
 };
     
