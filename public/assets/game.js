@@ -1,6 +1,7 @@
 var scenes = [];
 scenes.push(mainMenu);
 scenes.push(Scene1);
+scenes.push(Score)
 //..and so on
 
 

@@ -18,7 +18,6 @@ module.exports = function(app){
             console.log(dbUser)
             res.json(dbUser)
         })
-
     });
 
     //send scores
