@@ -73,7 +73,7 @@ create () {
     this.cameras.main.startFollow(player);
 
     //score business
-    scoreText = this.add.text(50, 250, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+    scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
     
 };
 
