@@ -20,7 +20,7 @@ class Score extends Phaser.Scene {
 
     let data = 
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '/api/allusers',
         data: data,
         dataType: 'json'
