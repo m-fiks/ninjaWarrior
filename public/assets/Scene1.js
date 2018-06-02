@@ -27,7 +27,7 @@ create () {
     //let platforms = this.physics.add.staticGroup();
     let ground = this.physics.add.staticGroup();
     //create the ground on bottom
-    ground.create(400,800, 'ground').refreshBody();
+    ground.create(400,700, 'ground').refreshBody();
 
     //create random platforms
     // platforms.create(900,180, 'platform');
