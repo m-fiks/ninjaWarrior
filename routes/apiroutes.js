@@ -21,8 +21,12 @@ module.exports = function(app){
 
     //send scores
     app.post('/api/scores', (req,res) => {
-        console.log(`scores: ${req}`);
+        console.log(req.body);
         res.send(req.body);
+    })
+
+    app.get('/api/scores', (req,res) => {
+        console.log(req)
     })
 
     //Get specific character route
