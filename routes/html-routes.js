@@ -23,7 +23,7 @@ module.exports = function (app) {
     });
 
     
-    app.get("/game", function (req, res) {
+    app.get("/index", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/assets/index.html"));
     });
 
