@@ -71,6 +71,10 @@ create () {
 
     //follow player
     this.cameras.main.startFollow(player);
+
+    //score business
+    scoreText = this.add.text(50, 250, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+    
 };
 
 update () {
@@ -96,6 +100,8 @@ else
 if (cursors.up.isDown)
     {
         player.setVelocityY(-85);
+        score += 10;
+        scoreText.setText('Score: ' + score);
     }
 };
     
