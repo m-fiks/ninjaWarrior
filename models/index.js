@@ -1,10 +1,8 @@
-// *****************************************************************************************************************
 // Index.js figures out which database it should use based on Heroku ("production") Or running locally ("development")
 // It will also use configuration inside config.json
 // Then​ ​it​ ​goes​ ​through​ ​every​ ​other​ ​JavaScript​ ​file​ ​inside​ ​our​ ​models​ ​folder​ ​and​ ​runs​ ​them through​ ​Sequelize
 // It​ ​gives​ ​our​ ​models​ ​all​ ​of​ ​Sequelize’s​ ​helper​ ​methods​ ​and​ ​makes sure​ ​that​ ​all​ ​of​ ​the​ ​associations​ ​between​ ​models​ ​are​ ​properly​ ​set​ ​up.​ ​
 // It​ ​exports​ ​an object​ ​we​ ​will​ ​use​ ​to​ ​interface​ ​with​ ​Sequelize​ ​in​ ​our​ ​other​ ​files
-// *****************************************************************************************************************
 
 'use strict';
 

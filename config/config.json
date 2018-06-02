@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Badminton1!",
+    "password": "root",
     "database": "ninjawarrior_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
