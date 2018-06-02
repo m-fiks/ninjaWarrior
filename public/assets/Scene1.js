@@ -74,6 +74,10 @@ create () {
 
     //score business
     scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+
+    this.input.on('pointerdown', function (event) {
+        this.scene.start("Score")
+    }, this);
     
 };
 
