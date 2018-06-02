@@ -1,4 +1,4 @@
-let allScores = "";
+let allScores = [];
 
 class Score extends Phaser.Scene {
     constructor() {
@@ -39,10 +39,12 @@ class Score extends Phaser.Scene {
         url: "/api/allusers",
     }).then((data) => {
         console.log(data);
+        let newArray = [];
         data.forEach((elem) => {
             console.log(elem.username, elem.score);
-            allScores.setText(elem.username, elem.score)
+            newArray.push(elem.username, elem.score)
         })
+        allScores.setText(newArray);
     })
     
     this.input.on('pointerdown', function (event) {
