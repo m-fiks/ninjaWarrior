@@ -14,7 +14,7 @@ module.exports = function(app){
     //Get all character Ninja routes
     app.get('/api/allusers', function(req,res){
         db.ninjaTables.findAll({}).then(function(dbUser){
-            console.log(dbUser)
+            //console.log(dbUser)
             res.json(dbUser)
         })
     });
@@ -27,20 +27,28 @@ module.exports = function(app){
             score: req.body.score
         }).then((results) => {
             //console.log(results.id);
-            res.send(results.id);
-            res.end();
+            //res.end();
+            res.json({ id: results.id });
         })
     })
-    
-
+        
     //send scores
-    app.post('/api/scores', (req,res) => {
-        console.log(req.body);
-        res.send(req.body);
+    app.put('/api/:id', (req,res) => {
+        //console.log(`PARAMS: ${req.params.id}`);
+        //res.send(req.body);
+        db.ninjaTables.update({
+            score: req.body.score
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then((results) => {
+            res.json(results)
+        })
     })
 
     app.get('/api/scores', (req,res) => {
-        console.log(req)
+        //console.log(req)
     })
 
     //Get specific character route

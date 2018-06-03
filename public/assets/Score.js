@@ -38,7 +38,7 @@ class Score extends Phaser.Scene {
         type: "GET",
         url: "/api/allusers",
     }).then((data) => {
-        console.log(data);
+        //console.log(data);
         let usernameArray = [];
         let scoreArray = [];
 
@@ -46,7 +46,7 @@ class Score extends Phaser.Scene {
             // console.log(elem.username, elem.score);
             usernameArray.push(elem.username)
             scoreArray.push(elem.score)
-            console.log(elem.username)
+            //console.log(elem.username)
         })
         allScores.setText(scoreArray);
         allUsername.setText(usernameArray)

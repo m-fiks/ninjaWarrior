@@ -114,22 +114,22 @@ if (cursors.up.isDown)
     }
 
     function onEvent () {
+        let id = sessionStorage.getItem('id')
         let data = {
             "score": score
         }
         $("#target").append(`times up! your score is: ${score}`);
-        
 
         $.ajax({
-            type: "POST",
-            url: "/api/scores",
+            type: "PUT",
+            url: "/api/" + id,
             data: data,
             dataType: "json",
         }).then((data) => {
-            console.log(data.score);
+            console.log(data);
+            //console.log(data.score);
             //add data.score to db
             //send to score screen
-        
         })
 
         //send to scoreboard

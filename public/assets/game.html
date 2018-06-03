@@ -114,12 +114,14 @@
             data: newUser,
             dataType: "json",
         }).then((data) => {
-            console.log(data);
+            //console.log(data);
+            sessionStorage.setItem('id', data.id)
             //session storage to hang on to the id???
         })
         $("#username").val("");
         $("#theform").hide();
-    })
+    });
+
     </script>
 
 </body>
