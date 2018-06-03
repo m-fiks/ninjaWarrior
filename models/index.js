@@ -40,3 +40,15 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+//EXTRA CODE FROM DELETED HANDLEBARS FILE
+// make this handlebars have form here and on button click send user to game route, add username to db-->
+// <form action="/users" method="POST">
+// <label>Username: </label>
+// <input name="userName" type="text" class="form-control">
+// <label>Password: </label>
+// <input name="password" type="text" class="form-control">
+// <button class="btn btn-info">Submit</button>
+// </form>orts = db;
+
+

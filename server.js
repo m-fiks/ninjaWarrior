@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const expressHbs = require("express-handlebars");
+// const expressHbs = require("express-handlebars");
 const db = require('./models')
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -18,9 +18,6 @@ app.get("/", (req,res) => {
 // app.get("/", (req,res) => {
 //     res.sendFile(path.join(__dirname, "/public/assets/index.html"));
 // })
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
