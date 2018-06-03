@@ -1,10 +1,8 @@
-// *****************************************************************************************************************
 // Index.js figures out which database it should use based on Heroku ("production") Or running locally ("development")
 // It will also use configuration inside config.json
 // Then​ ​it​ ​goes​ ​through​ ​every​ ​other​ ​JavaScript​ ​file​ ​inside​ ​our​ ​models​ ​folder​ ​and​ ​runs​ ​them through​ ​Sequelize
 // It​ ​gives​ ​our​ ​models​ ​all​ ​of​ ​Sequelize’s​ ​helper​ ​methods​ ​and​ ​makes sure​ ​that​ ​all​ ​of​ ​the​ ​associations​ ​between​ ​models​ ​are​ ​properly​ ​set​ ​up.​ ​
 // It​ ​exports​ ​an object​ ​we​ ​will​ ​use​ ​to​ ​interface​ ​with​ ​Sequelize​ ​in​ ​our​ ​other​ ​files
-// *****************************************************************************************************************
 
 'use strict';
 
@@ -42,3 +40,15 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+//EXTRA CODE FROM DELETED HANDLEBARS FILE
+// make this handlebars have form here and on button click send user to game route, add username to db-->
+// <form action="/users" method="POST">
+// <label>Username: </label>
+// <input name="userName" type="text" class="form-control">
+// <label>Password: </label>
+// <input name="password" type="text" class="form-control">
+// <button class="btn btn-info">Submit</button>
+// </form>orts = db;
+
+
