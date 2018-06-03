@@ -1,35 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninja Warrior Game</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- GAME TEST ON THE INDEX PAGE -->
+
+    <!-- <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
+        <script src="./assets/mainMenu.js"></script>
+        <script src="./assets/Scene1.js"></script>
+        <script src="./assets/Score.js"></script>
+        <script src="./assets/game.js"></script> -->
+
+
+    <title>NINJA WARRIOR</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
+<div id="wrapper">
 
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
 
-<body>
-    <div class="container">
-        <div class="row">
-            <header>
-                <h1>Ninja Warrior Game</h1>
-            </header>
-        </div>
+                </a>
+            </li>
+            <li>
+                <a href="index">HOME</a>
+            </li>
+            <li>
+                <a href="game">PLAY GAME</a>
+            </li>
+            <li>
+                <a href="about">ABOUT US</a>
+            </li>
+            <li class="dropdown">
+                <a href="#topscore" class="dropdown-toggle" data-toggle="dropdown">LEADERBOARD
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="listbox">
+                    <li>
+                        <a href="#topscore1" role="option">Top Score1</a>
+                    </li>
+                    <li>
+                        <a href="#topscore2" role="option">Top Score2</a>
+                    </li>
+                    <li>
+                        <a href="#topscore3" role="option">Top Score3</a>
+                    </li>
+                    <li>
+                        <a href="#topscore4" role="option">Top Score4</a>
+                    </li>
+                    <li>
+                        <a href="#topscore5" role="option">Top Score5</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
+
+    <!-- ABOUT US INFORMATION -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-sm-12">
@@ -37,7 +88,8 @@
                 <div class="content">
                     <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quaerat delectus illo fugiat. Ducimus
                         labore aliquam a veniam dolore praesentium, deserunt, iste, velit in qui ipsam officia maiores est
-                        dolor.</p>
+                        dolor.
+                    </p>
                     <br>
 
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, dicta, earum dolores cum illo non
@@ -70,10 +122,21 @@
         </div>
     </div>
 
+</div>
+<!-- /#wrapper-->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
 
-    <footer>
-        <p>&copy; Copyright 2018 Group 2 Project</p>
-    </footer>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 </body>
 
 </html>
