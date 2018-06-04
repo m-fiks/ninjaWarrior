@@ -12,6 +12,9 @@ html {
 body {
   margin: 0;
 }
+canvas{
+  float:right;
+}
 article,
 aside,
 details,

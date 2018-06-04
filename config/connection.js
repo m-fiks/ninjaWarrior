@@ -2,8 +2,8 @@
 // Dependencies 
 const Sequelize = require('sequelize');
 
-// Creates MySQL connection using Sequelize 
-const sequelize = new Sequelize('ninjawarrior_db', 'root', 'root', {
+//Creates MySQL connection using Sequelize 
+const sequelize = new Sequelize('ninjawarrior_db', 'root','', {
     host: 'localhost',
     dialect: 'mysql',
   

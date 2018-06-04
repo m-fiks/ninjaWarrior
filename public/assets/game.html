@@ -50,6 +50,7 @@
         </div>
         <!-- /#sidebar-wrapper -->
 
+        <!--username and score =0  and update score for that id after game played-->
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -60,6 +61,18 @@
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">MENU</a>
                         <a href="#menu-toggle" class="btn btn-danger" id="play-game">PLAY</a>
+                    </div>
+
+                    <!--username form-->
+                    <div class="col-lg-4" id="theform">
+                        <form>
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username">
+                                <button type="submit" class="btn btn-warning" id="submit">Submit</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -81,6 +94,27 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    $("#submit").on("click", (e) => {
+        e.preventDefault();
+        let newUser = {
+            username: $("#username").val(),
+            score: 0
+        }
+        $.ajax({
+            type: "POST",
+            url: "/api/new",
+            data: newUser,
+            dataType: "json",
+        }).then((data) => {
+            //console.log(data);
+            sessionStorage.setItem('id', data.id)
+            //session storage to hang on to the id???
+        })
+        $("#username").val("");
+        $("#theform").hide();
+    });
+
     </script>
 
 </body>
