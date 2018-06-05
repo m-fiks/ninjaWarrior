@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-        <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
-        <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
-        <script src="./assets/mainMenu.js"></script>
-        <script src="./assets/Scene1.js"></script>
-        <script src="./assets/Score.js"></script>
-        <script src="./assets/game.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
+    <script src="./assets/mainMenu.js"></script>
+    <script src="./assets/Scene1.js"></script>
+    <script src="./assets/Score.js"></script>
+    <script src="./assets/game.js"></script>
 
 
     <title>NINJA WARRIOR</title>
@@ -25,6 +26,7 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
 </head>
+
 <body>
 
     <div id="wrapper">
@@ -34,8 +36,11 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        
+
                     </a>
+                </li>
+                <li>
+                    <a href="index">HOME</a>
                 </li>
                 <li>
                     <a href="game">PLAY GAME</a>
@@ -43,8 +48,27 @@
                 <li>
                     <a href="about">ABOUT US</a>
                 </li>
-                <li>
-                    <a href="leaderboard">LEADERBOARD</a>
+                <li class="dropdown">
+                    <a href="#topscore" class="dropdown-toggle" data-toggle="dropdown">LEADERBOARD
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="listbox">
+                        <li>
+                            <a href="#topscore1" role="option">Top Score1</a>
+                        </li>
+                        <li>
+                            <a href="#topscore2" role="option">Top Score2</a>
+                        </li>
+                        <li>
+                            <a href="#topscore3" role="option">Top Score3</a>
+                        </li>
+                        <li>
+                            <a href="#topscore4" role="option">Top Score4</a>
+                        </li>
+                        <li>
+                            <a href="#topscore5" role="option">Top Score5</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -77,7 +101,8 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->

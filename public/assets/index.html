@@ -30,8 +30,11 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        
+
                     </a>
+                </li>
+                <li>
+                    <a href="#">HOME</a>
                 </li>
                 <li>
                     <a href="game">PLAY GAME</a>
@@ -39,8 +42,27 @@
                 <li>
                     <a href="about">ABOUT US</a>
                 </li>
-                <li>
-                    <a href="leaderboard">LEADERBOARD</a>
+                <li class="dropdown">
+                    <a href="#topscore" class="dropdown-toggle" data-toggle="dropdown">LEADERBOARD
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="listbox">
+                        <li>
+                            <a href="#topscore1" role="option">Top Score1</a>
+                        </li>
+                        <li>
+                            <a href="#topscore2" role="option">Top Score2</a>
+                        </li>
+                        <li>
+                            <a href="#topscore3" role="option">Top Score3</a>
+                        </li>
+                        <li>
+                            <a href="#topscore4" role="option">Top Score4</a>
+                        </li>
+                        <li>
+                            <a href="#topscore5" role="option">Top Score5</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -50,17 +72,23 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <h1>NINJA WARRIOR</h1>
                         <!-- <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">MENU</a>
-                        <a href="#menu-toggle" class="btn btn-danger" id="play-game">PLAY</a>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">MENU</a>
+                        <a href="game" class="btn btn-danger" id="play-game">PLAY</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+        <video autoplay loop id="video-background" muted plays-inline>
+                <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+        </video>
 
     </div>
     <!-- /#wrapper -->
