@@ -1,79 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninja Warrior Game</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- GAME TEST ON THE INDEX PAGE -->
+
+    <!-- <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
+        <script src="./assets/mainMenu.js"></script>
+        <script src="./assets/Scene1.js"></script>
+        <script src="./assets/Score.js"></script>
+        <script src="./assets/game.js"></script> -->
+
+
+    <title>NINJA WARRIOR</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
+<div id="wrapper">
 
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
 
-<body>
-    <div class="container">
-        <div class="row">
-            <header>
-                <h1>Ninja Warrior Game</h1>
-            </header>
-        </div>
+                </a>
+            </li>
+            <li>
+                <a href="index">HOME</a>
+            </li>
+            <li>
+                <a href="game">PLAY GAME</a>
+            </li>
+            <li>
+                <a href="about">ABOUT US</a>
+            </li>
+            <li class="dropdown">
+                <a href="#topscore" class="dropdown-toggle" data-toggle="dropdown">LEADERBOARD
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="listbox">
+                    <li>
+                        <a href="#topscore1" role="option">Top Score1</a>
+                    </li>
+                    <li>
+                        <a href="#topscore2" role="option">Top Score2</a>
+                    </li>
+                    <li>
+                        <a href="#topscore3" role="option">Top Score3</a>
+                    </li>
+                    <li>
+                        <a href="#topscore4" role="option">Top Score4</a>
+                    </li>
+                    <li>
+                        <a href="#topscore5" role="option">Top Score5</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-sm-12">
-                <h2>About</h2>
-                <div class="content">
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quaerat delectus illo fugiat. Ducimus
-                        labore aliquam a veniam dolore praesentium, deserunt, iste, velit in qui ipsam officia maiores est
-                        dolor.</p>
-                    <br>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h1>OUR TEAM</h1>
+                    <!-- <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
 
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, dicta, earum dolores cum illo non
-                        quae architecto cumque repellat debitis facilis voluptatibus voluptatem similique veniam nulla. Ex
-                        possimus hic obcaecati.. </p>
                 </div>
-
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">MENU</a>
+                    <a href="game" class="btn btn-danger" id="play-game">PLAY</a>
+                </div>
             </div>
-            <div class="col-lg-4 col-sm-12">
-                <h2>Get in touch</h2>
-                <form class="content">
-                    <label> Name
-                        <br>
-                        <input type="text" name="Name" placeholder="Name">
-                        <br>
-                    </label>
-                    <label> Email
-                        <br>
-                        <input type="text" name="Email" placeholder="Email">
-                        <br>
-                    </label>
-                    <label> Message
-                        <br>
-                        <textarea name="Message" rows="10"> </textarea>
-                        <br>
-                    </label>
-                    <input type="submit" value="Submit">
-                </form>
+        </div>
+
+        <div class="container">
+            <div class="at-grid" data-column="3">
+                <div class="at-column">
+                    <div class="at-user">
+                        <div class="at-user__avatar">
+                            <img src="./assets/images/team/maddy_headshot.jpg" />
+                        </div>
+                        <div class="at-user__name">Maddy Fiksdal</div>
+                        <div class="at-user__title">Front & Backend Development</div>
+
+                    </div>
+                </div>
+                <div class="at-column">
+                    <div class="at-user">
+                        <div class="at-user__avatar">
+                            <img src="./assets/images/team/wade_headshot.jpg" />
+                        </div>
+                        <div class="at-user__name">Wade Darsow</div>
+                        <div class="at-user__title">Project Manager</div>
+
+                    </div>
+                </div>
+                <div class="at-column">
+                    <div class="at-user">
+                        <div class="at-user__avatar">
+                            <img src="./assets/images/team/salah_headshot.jpg" />
+                        </div>
+                        <div class="at-user__name">Salah</div>
+                        <div class="at-user__title">Backend & Database Development</div>
+
+                    </div>
+                </div>
+                <div class="at-column">
+                    <div class="at-user">
+                        <div class="at-user__avatar">
+                            <img src="./assets/images/team/sama_headshot.jpg" />
+                        </div>
+                        <div class="at-user__name">Sama Sandy</div>
+                        <div class="at-user__title">Frontend & Graphics</div>
+
+                    </div>
+                </div>
+                <div class="at-column">
+                    <div class="at-user">
+                        <div class="at-user__avatar">
+                            <img src="./assets/images/team/femi_headshot.jpg" />
+                        </div>
+                        <div class="at-user__name">Femi</div>
+                        <div class="at-user__title">Database, Frontend and Content</div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper-->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-    <footer>
-        <p>&copy; Copyright 2018 Group 2 Project</p>
-    </footer>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 </body>
 
 </html>

@@ -25,8 +25,8 @@ preload () {
     this.load.image('warped', './assets/images/warp_wall.png')
     this.load.image('spin1', './assets/images/spin1.png')
     this.load.image('spin2', './assets/images/spin2.png')
-    this.load.image('barrel', './assets/images/barrel.png')
-
+    //this.load.image('barrel', './assets/images/barrel.png')
+    this.load.image('star', './assets/images/star.png')
 
     this.load.spritesheet('dude', './assets/images/running.png', { frameWidth: 36, frameHeight: 48 });
 };
@@ -56,8 +56,15 @@ create () {
     this.platforms.create(1010, 635, 'steps3')
     this.platforms.create(1089, 596, 'steps4')
 
-    // this.platforms.setAll('body.allowGravity', false);
-    // this.platforms.setAll('body.immovable', tru)
+    //steps 2
+    this.platforms.create(1650, 698, 'steps1')
+    this.platforms.create(1720, 669, 'steps2')
+    this.platforms.create(1795, 596, 'steps4')
+    this.platforms.create(1870, 635, 'steps3')
+    
+    //spinny 2
+    this.platforms.create(2500, 650, 'spin2')
+    this.platforms.create(2500, 600, 'spin1')
 
     //adding player sprite in bottom left corner, using physics to make dynamic
     player = this.physics.add.sprite(50,650, 'dude');
@@ -90,25 +97,49 @@ create () {
     this.physics.add.collider(player, ground);
     this.physics.add.collider(player, this.platforms);
 
-
-    //this.physics.setBounds(0,0,5000,1000)
     //camera business
     this.cameras.main.setBounds(0,0, 9000, 1000);
-
     //follow player
     this.cameras.main.startFollow(player);
+    
+
+    //stars drop
+    //star at 350, and drop one every stepx value
+    let stars = this.physics.add.group({
+        key: 'star',
+        repeat: 40,
+        setXY: { x: 550, y: 0, stepX: 85 }
+    });
+
+    stars.children.iterate((child) => {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4,0.8))
+    });
+
+    this.physics.add.collider(stars, this.platforms)
+    this.physics.add.collider(stars, ground)
+
+    //stars up the score
+    this.physics.add.overlap(player, stars, collectStars, null, this);
+
+    function collectStars (player, star){
+        star.disableBody(true, true);
+
+        score += 10;
+        scoreText.setText('Score: ' + score);
+    }
 
     //score business
-    scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-    scoreText.fixedToCamera = true;
-
+    let scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+    scoreText = this.add.text(2250, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
+    //scoreText = this.add.text(3000, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
+   
 };
 
 update () {
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
-    delay: 5000,
+    delay: 10000,
     callback: onEvent,
     callbackScope: this
 })
@@ -134,8 +165,6 @@ else
 if (cursors.up.isDown)
     {
         player.setVelocityY(-85);
-        score += 10;
-        scoreText.setText('Score: ' + score);
     }
 
     function onEvent () {
@@ -145,21 +174,21 @@ if (cursors.up.isDown)
         }
         $("#target").append(`times up! your score is: ${score}`);
 
-        // $.ajax({
-        //     type: "PUT",
-        //     url: "/api/" + id,
-        //     data: data,
-        //     dataType: "json",
-        // }).then((data) => {
-        //     console.log(data);
-        //     //console.log(data.score);
-        //     //add data.score to db
-        //     //send to score screen
-        // })
+        $.ajax({
+            type: "PUT",
+            url: "/api/" + id,
+            data: data,
+            dataType: "json",
+        }).then((data) => {
+            console.log(data);
+            //console.log(data.score);
+            //add data.score to db
+            //send to score screen
+        })
 
         //send to scoreboard
-        //this.scene.start("Score")
-        //game.destroy();
+        this.scene.start("Score")
+        game.destroy();
     }
    
 };

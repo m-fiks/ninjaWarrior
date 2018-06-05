@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 canvas{
-  float:right;
+  float:none;
 }
 article,
 aside,
@@ -1090,6 +1090,7 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+  height: 100%;
 }
 input,
 button,
@@ -1225,7 +1226,6 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -1592,7 +1592,7 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 720px;
   }
 }
 @media (min-width: 992px) {
@@ -1602,7 +1602,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 720px;
   }
 }
 .container-fluid {
@@ -1610,6 +1610,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 40px;
 }
 .row {
   margin-right: -15px;
@@ -1965,6 +1966,7 @@ pre code {
   }
   .col-md-4 {
     width: 33.33333333%;
+    margin-top: 20px;
   }
   .col-md-3 {
     width: 25%;
