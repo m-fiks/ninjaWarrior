@@ -16,6 +16,18 @@ preload () {
     this.load.image('main', './assets/images/main.jpg');
     this.load.image('ground', './assets/images/ground.png');
     this.load.image('platform', './assets/images/platform.png');
+    //load obstacles
+    this.load.image('ramp', './assets/images/ramp.png')
+    this.load.image('steps1', './assets/images/steps1.png')
+    this.load.image('steps2', './assets/images/steps2.png')
+    this.load.image('steps3', './assets/images/steps3.png')
+    this.load.image('steps4', './assets/images/steps4.png')
+    this.load.image('warped', './assets/images/warp_wall.png')
+    this.load.image('spin1', './assets/images/spin1.png')
+    this.load.image('spin2', './assets/images/spin2.png')
+    //this.load.image('barrel', './assets/images/barrel.png')
+    this.load.image('star', './assets/images/star.png')
+
     this.load.spritesheet('dude', './assets/images/running.png', { frameWidth: 36, frameHeight: 48 });
 };
 
@@ -30,11 +42,22 @@ create () {
     //create the ground on bottom
     ground.create(400,700, 'ground').refreshBody();
 
-    //create random platforms
-    // platforms.create(900,180, 'platform');
-    // platforms.create(1450,200, 'platform');
-    // platforms.create(750, 200, 'platform');
+    //ADD OBSTACLES!!!!!!!!!!!!!!
+    this.platforms = this.physics.add.staticGroup();
 
+    //obstacles.create(500,500, 'steps').refreshBody();
+    //this.platforms.create(450,650,'barrel')
+    this.platforms.create(450, 650, 'spin1')
+    this.platforms.create(450, 600, 'spin2')
+
+    //steps
+    this.platforms.create(850, 698, 'steps1')
+    this.platforms.create(930, 669, 'steps2')
+    this.platforms.create(1010, 635, 'steps3')
+    this.platforms.create(1089, 596, 'steps4')
+
+    // this.platforms.setAll('body.allowGravity', false);
+    // this.platforms.setAll('body.immovable', tru)
 
     //adding player sprite in bottom left corner, using physics to make dynamic
     player = this.physics.add.sprite(50,650, 'dude');
@@ -65,24 +88,44 @@ create () {
     })
     // //check to see if player hits ground
     this.physics.add.collider(player, ground);
+    this.physics.add.collider(player, this.platforms);
 
-    //this.physics.setBounds(0,0,5000,1000)
     //camera business
     this.cameras.main.setBounds(0,0, 9000, 1000);
-
     //follow player
     this.cameras.main.startFollow(player);
+    
+
+    //stars drop
+    //star at 350, and drop one every stepx value
+    let stars = this.physics.add.group({
+        key: 'star',
+        repeat: 15,
+        setXY: { x: 350, y: 0, stepX: 85 }
+    });
+
+    stars.children.iterate((child) => {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4,0.8))
+    });
+
+    this.physics.add.collider(stars, this.platforms)
+    this.physics.add.collider(stars, ground)
+
+    //stars up the score
+    this.physics.add.overlap(player, stars, collectStars, null, this);
+
+    function collectStars (player, star){
+        star.disableBody(true, true);
+
+        score += 10;
+        scoreText.setText('Score: ' + score);
+    }
 
     //score business
-    scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-    scoreText.fixedToCamera = true;
-
-
-    //send to score screen
-    this.input.on("pointerdown", (event) => {
-        this.scene.start("Score")
-    },this);
-
+    let scoreText = this.add.text(350, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+    scoreText = this.add.text(2250, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
+    //scoreText = this.add.text(3000, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
+   
 };
 
 update () {
@@ -115,26 +158,30 @@ else
 if (cursors.up.isDown)
     {
         player.setVelocityY(-85);
-        score += 10;
-        scoreText.setText('Score: ' + score);
     }
 
     function onEvent () {
+        let id = sessionStorage.getItem('id')
         let data = {
             "score": score
         }
-        alert(`times up! your score is: ${score}`);
-        $.ajax({
-            type: "POST",
-            url: "/api/scores",
-            data: data,
-            dataType: "json",
-        }).then((data) => {
-            console.log(data.score);
-            //add data.score to db
+        $("#target").append(`times up! your score is: ${score}`);
 
-        })
-        game.destroy();
+        // $.ajax({
+        //     type: "PUT",
+        //     url: "/api/" + id,
+        //     data: data,
+        //     dataType: "json",
+        // }).then((data) => {
+        //     console.log(data);
+        //     //console.log(data.score);
+        //     //add data.score to db
+        //     //send to score screen
+        // })
+
+        //send to scoreboard
+        //this.scene.start("Score")
+        //game.destroy();
     }
    
 };
