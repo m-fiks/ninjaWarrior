@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 canvas{
-  float:right;
+  float:none;
 }
 article,
 aside,

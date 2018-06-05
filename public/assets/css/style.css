@@ -54,6 +54,10 @@ body {
   margin-left: auto;
 }
 
+#wrapper{
+  height:120.5px;
+}
+
 /* Padding for spacing */
 .inner {
   padding: 2rem;
@@ -120,6 +124,7 @@ body {
 /*
  * Footer
  */
+
 
 .mastfoot {
   color: rgba(255,255,255,.5);
