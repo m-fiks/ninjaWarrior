@@ -19,9 +19,9 @@ class Score extends Phaser.Scene {
     let main = this.add.text(225,0, 'End!', {font:"40px Impact", fill: "#000000"});
     //buttons click events
 
-    let scores = this.add.text(250, 190, 'Time(sec)', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
-    allScores = this.add.text(250, 220, 'HOWDY',  {font:"20px Impact", fill:'#ffffff'})
-    allUsername = this.add.text(300, 220, 'JHJKH',  {font:"20px Impact", fill:'#ffffff'})
+    let scores = this.add.text(350, 190, 'Score', {font:"25px Impact", fill:'#ffffff'}).setInteractive();
+    allScores = this.add.text(350, 220, 'HOWDY',  {font:"25px Impact", fill:'#ffffff'})
+    allUsername = this.add.text(250, 220, 'JHJKH',  {font:"25px Impact", fill:'#ffffff'})
     // let data = 
     // $.ajax({
     //     type: 'POST',
@@ -36,7 +36,7 @@ class Score extends Phaser.Scene {
 
     $.ajax({
         type: "GET",
-        url: "/api/allusers",
+        url: "/api/scores",
     }).then((data) => {
         //console.log(data);
         let usernameArray = [];

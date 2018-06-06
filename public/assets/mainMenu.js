@@ -23,15 +23,19 @@ class mainMenu extends Phaser.Scene {
 
     play = this.add.text(250, 190, 'Play now!', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
     
-    this.input.on('pointerdown', function (event) {
+    play.on('pointerdown', function (event) {
         this.scene.start("Scene1")
     }, this);
     // let playButton = this.add.image(250, 260, 'play');
 
-    let how = this.add.text(400, 190, 'How to play', {font:"20px Impact", fill:'#ffffff'});
     // let helpButton = this.add.image(300, 260, 'help');
 
+    let help = this.add.text(400, 190, 'How to play', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
 
+
+    help.on('pointerdown', function (event) {
+        this.scene.start("HowToPlay")
+    }, this);
     };
 
     // startGame (event) {

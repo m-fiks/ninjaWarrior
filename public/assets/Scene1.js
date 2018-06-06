@@ -2,8 +2,8 @@ let player;
 let score = 0;
 let scoreText = "";
 let newScore = "";
-// I managed to restart the same scene by doing:
-// this.scene.manager.bootScene(this);
+let ui_camera;
+
 
 class Scene1 extends Phaser.Scene {
     constructor() {
@@ -33,15 +33,14 @@ preload () {
 
 create () {
     //ORDER HERE IS IMPORTANT
-
     //adding sky
-    let background = this.add.image(400, 300, 'main');
+    let background = this.add.image(2200, 300, 'main');
     //create platforms
     //let platforms = this.physics.add.staticGroup();
     let ground = this.physics.add.staticGroup();
     //create the ground on bottom
     ground.create(400,700, 'ground').refreshBody();
-
+    
     //ADD OBSTACLES!!!!!!!!!!!!!!
     this.platforms = this.physics.add.staticGroup();
 
@@ -56,8 +55,15 @@ create () {
     this.platforms.create(1010, 635, 'steps3')
     this.platforms.create(1089, 596, 'steps4')
 
-    // this.platforms.setAll('body.allowGravity', false);
-    // this.platforms.setAll('body.immovable', tru)
+    //steps 2
+    this.platforms.create(1650, 698, 'steps1')
+    this.platforms.create(1720, 669, 'steps2')
+    this.platforms.create(1795, 596, 'steps4')
+    this.platforms.create(1870, 635, 'steps3')
+    
+    //spinny 2
+    this.platforms.create(2500, 650, 'spin2')
+    this.platforms.create(2500, 600, 'spin1')
 
     //adding player sprite in bottom left corner, using physics to make dynamic
     player = this.physics.add.sprite(50,650, 'dude');
@@ -100,7 +106,7 @@ create () {
     //star at 350, and drop one every stepx value
     let stars = this.physics.add.group({
         key: 'star',
-        repeat: 15,
+        repeat: 45,
         setXY: { x: 350, y: 0, stepX: 85 }
     });
 
@@ -116,25 +122,23 @@ create () {
 
     function collectStars (player, star){
         star.disableBody(true, true);
-
         score += 10;
         scoreText.setText('Score: ' + score);
     }
 
     //score business
-    let scoreText = this.add.text(350, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-    scoreText = this.add.text(2250, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-    //scoreText = this.add.text(3000, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-   
+    scoreText = this.add.text(50, 450, `score: 0`, { fontSize: '32px', fill: '#000000' });
+
 };
 
 update () {
+
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
-    delay: 5000,
+    delay: 20000,
     callback: onEvent,
-    callbackScope: this
+    callbackScope: this,
 })
 
 let cursors;
@@ -149,6 +153,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
+        scoreText.x = scoreText.x += 2;
     }
 else
     {
@@ -165,23 +170,29 @@ if (cursors.up.isDown)
         let data = {
             "score": score
         }
-        $("#target").append(`times up! your score is: ${score}`);
-
-        // $.ajax({
-        //     type: "PUT",
-        //     url: "/api/" + id,
-        //     data: data,
-        //     dataType: "json",
-        // }).then((data) => {
-        //     console.log(data);
-        //     //console.log(data.score);
-        //     //add data.score to db
-        //     //send to score screen
-        // })
-
+        alert(`TIMES UP YOUR SCORE IS: ${score}`)
+        $.ajax({
+            type: "PUT",
+            url: "/api/" + id,
+            data: data,
+            dataType: "json",
+        }).then((data) => {
+            console.log(data);
+            //console.log(data.score);
+            //add data.score to db
+            //send to score screen
+        })
         //send to scoreboard
-        //this.scene.start("Score")
-        //game.destroy();
+        gameOver();
+        this.scene.stop("Scene1");
+        this.scene.start("Score");
+        
+    }
+
+    function gameOver () {
+        score = 0;
+        gameOver = true;
+        newScore = "";
     }
    
 };

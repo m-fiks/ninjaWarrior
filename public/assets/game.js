@@ -2,13 +2,14 @@ var scenes = [];
 scenes.push(mainMenu);
 scenes.push(Scene1);
 scenes.push(Score)
+scenes.push(HowToPlay)
 //..and so on
 
 
 const config = {
     type: Phaser.AUTO,
     width: 850,
-    height: 650,
+    height: 500,
     physics: {
             default: 'arcade',
             arcade: {
