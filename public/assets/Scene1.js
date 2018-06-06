@@ -106,8 +106,8 @@ create () {
     //star at 350, and drop one every stepx value
     let stars = this.physics.add.group({
         key: 'star',
-        repeat: 40,
-        setXY: { x: 550, y: 0, stepX: 85 }
+        repeat: 45,
+        setXY: { x: 350, y: 0, stepX: 85 }
     });
 
     stars.children.iterate((child) => {
@@ -127,7 +127,7 @@ create () {
     }
 
     //score business
-    scoreText = this.add.text(50, 350, `score: 0`, { fontSize: '32px', fill: '#000000' });
+    scoreText = this.add.text(50, 450, `score: 0`, { fontSize: '32px', fill: '#000000' });
 
 };
 
@@ -136,7 +136,7 @@ update () {
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
-    delay: 10000,
+    delay: 20000,
     callback: onEvent,
     callbackScope: this,
 })
@@ -153,7 +153,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
-        scoreText.x = scoreText.x += 1;
+        scoreText.x = scoreText.x += 2;
     }
 else
     {
