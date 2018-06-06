@@ -2,6 +2,8 @@ let player;
 let score = 0;
 let scoreText = "";
 let newScore = "";
+let ui_camera;
+
 
 class Scene1 extends Phaser.Scene {
     constructor() {
@@ -38,15 +40,14 @@ create () {
     let ground = this.physics.add.staticGroup();
     //create the ground on bottom
     ground.create(400,700, 'ground').refreshBody();
-
+    
     //ADD OBSTACLES!!!!!!!!!!!!!!
     this.platforms = this.physics.add.staticGroup();
 
     //obstacles.create(500,500, 'steps').refreshBody();
     //this.platforms.create(450,650,'barrel')
-    let spin1 = this.platforms.create(450, 650, 'spin1')
-    spin1 = this.platforms.create(450, 600, 'spin2')
-
+    this.platforms.create(450, 650, 'spin1')
+    this.platforms.create(450, 600, 'spin2')
 
     //steps
     this.platforms.create(850, 698, 'steps1')
@@ -105,8 +106,8 @@ create () {
     //star at 350, and drop one every stepx value
     let stars = this.physics.add.group({
         key: 'star',
-        repeat: 40,
-        setXY: { x: 550, y: 0, stepX: 85 }
+        repeat: 45,
+        setXY: { x: 350, y: 0, stepX: 85 }
     });
 
     stars.children.iterate((child) => {
@@ -126,7 +127,8 @@ create () {
     }
 
     //score business
-    scoreText = this.add.text(50, 350, `score: 0`, { fontSize: '32px', fill: '#000000' });
+    scoreText = this.add.text(50, 450, `score: 0`, { fontSize: '32px', fill: '#000000' });
+
 };
 
 update () {
@@ -134,9 +136,9 @@ update () {
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
-    delay: 10000,
+    delay: 20000,
     callback: onEvent,
-    callbackScope: this
+    callbackScope: this,
 })
 
 let cursors;
@@ -151,7 +153,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
-        scoreText.x = scoreText.x += 1;
+        scoreText.x = scoreText.x += 2;
     }
 else
     {
@@ -168,8 +170,7 @@ if (cursors.up.isDown)
         let data = {
             "score": score
         }
-        alert(`times up! your score is: ${score}`);
-
+        alert(`TIMES UP YOUR SCORE IS: ${score}`)
         $.ajax({
             type: "PUT",
             url: "/api/" + id,
@@ -191,6 +192,7 @@ if (cursors.up.isDown)
     function gameOver () {
         score = 0;
         gameOver = true;
+        newScore = "";
     }
    
 };

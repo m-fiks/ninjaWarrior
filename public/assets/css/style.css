@@ -339,12 +339,27 @@ body {
 .at-social__item svg:hover {
   fill: #788D96;
 }
-
+/* The only rule that matters */
+#video-background {
+  /*  making the video fullscreen  */
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: 100;
+  }
 body {
   background: #FFF;
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 .container {
@@ -359,16 +374,10 @@ body {
           transform: scale(0.8);
 }
 
+.buttons{
+  z-index: 101;
+}
 
-/* The only rule that matters */
-#video-background {
-  /*  making the video fullscreen  */
-    position: fixed;
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto;
-    z-index: -100;
-  }
+.about{
+  font-size: 14px;
+}

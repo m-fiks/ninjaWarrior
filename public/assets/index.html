@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-        <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
-        <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
 
     <title>NINJA WARRIOR</title>
 
@@ -69,19 +70,30 @@
         <!-- /#sidebar-wrapper -->
         
         <!-- Page Content -->
+
         <div id="page-content-wrapper">
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <h1>NINJA WARRIOR</h1>
+                        <h1></h1>
                         <!-- <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
+
+                    </div>
+                    <div class="buttons col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">MENU</a>
+                        <a href="game" class="btn btn-danger" id="play-game">PLAY</a>
+                    </div>
+                    <video autoplay loop id="video-background" muted plays-inline>
+                            <source src="./assets/video/American Ninja Warrior Graphics Package.mp4" type="video/mp4">
+                        </video>
+
                 </div>
             </div>
+
         </div>
         <!-- /#page-content-wrapper -->
-        <video autoplay loop id="video-background" muted plays-inline>
-        </video>
 
     </div>
     <!-- /#wrapper -->
@@ -94,11 +106,11 @@
 
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
     </script>
 
 </body>
