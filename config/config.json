@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
-=======
-    "password": "ground12",
->>>>>>> master
     "database": "ninjawarrior_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
