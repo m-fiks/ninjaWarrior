@@ -35,7 +35,7 @@ create () {
     //ORDER HERE IS IMPORTANT
 
     //adding sky
-    let background = this.add.image(400, 300, 'main');
+    let background = this.add.image(2200, 300, 'main');
     //create platforms
     //let platforms = this.physics.add.staticGroup();
     let ground = this.physics.add.staticGroup();
@@ -138,11 +138,11 @@ create () {
 update () {
 //let user control with arrow keys    
 //timer
-this.timedEvent = this.time.addEvent({
-    delay: 10000,
-    callback: onEvent,
-    callbackScope: this
-})
+// this.timedEvent = this.time.addEvent({
+//     delay: 10000,
+//     callback: onEvent,
+//     callbackScope: this
+// })
 
 let cursors;
 cursors = this.input.keyboard.createCursorKeys();
@@ -174,17 +174,17 @@ if (cursors.up.isDown)
         }
         alert(`times up! your score is: ${score}`);
 
-        $.ajax({
-            type: "PUT",
-            url: "/api/" + id,
-            data: data,
-            dataType: "json",
-        }).then((data) => {
-            console.log(data);
-            //console.log(data.score);
-            //add data.score to db
-            //send to score screen
-        })
+        // $.ajax({
+        //     type: "PUT",
+        //     url: "/api/" + id,
+        //     data: data,
+        //     dataType: "json",
+        // }).then((data) => {
+        //     console.log(data);
+        //     //console.log(data.score);
+        //     //add data.score to db
+        //     //send to score screen
+        // })
 
         //send to scoreboard
         this.scene.start("Score")
