@@ -6,8 +6,8 @@ class mainMenu extends Phaser.Scene {
     
     //load the images
     preload () {
-    //sky needs to be larger to fit the world bounds
-    this.load.image('sky', './assets/images/sky.png');
+    //background needs to be larger to fit the world bounds
+    this.load.image('ninja', './assets/images/ninja_background.jpg');
     //Play button
     this.load.image('play', './assets/images/play.png')
     //How to play button
@@ -15,10 +15,10 @@ class mainMenu extends Phaser.Scene {
     };
 
     create (){
-    //adding sky
-    let background = this.add.image(50, 0, 'sky');
+    //adding background
+    let background = this.add.image(400, 350, 'ninja');
     //Some text
-    let main = this.add.text(225,0, 'Main Menu, Welcome!', {font:"40px Impact", fill: "#000000"});
+    let main = this.add.text(225,0, 'Main Menu, Welcome!', {font:"40px Impact", fill: "#ffffff"});
     //buttons click events
 
     play = this.add.text(250, 190, 'Play now!', {font:"20px Impact", fill:'#ffffff'}).setInteractive();

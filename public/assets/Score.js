@@ -9,12 +9,12 @@ class Score extends Phaser.Scene {
     //load the images
     preload () {
     //sky needs to be larger to fit the world bounds
-    this.load.image('sky', './assets/images/sky.png');
+    this.load.image('ninja', './assets/images/game_background.jpg');
     };
 
     create (){
-    //adding sky
-    let background = this.add.image(50, 0, 'sky');
+    //adding ninja
+    let background = this.add.image(50, 0, 'ninja');
     //Some text
     let main = this.add.text(225,0, 'End!', {font:"40px Impact", fill: "#000000"});
     //buttons click events

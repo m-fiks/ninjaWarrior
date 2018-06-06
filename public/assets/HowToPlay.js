@@ -6,7 +6,7 @@ class HowToPlay extends Phaser.Scene {
     //load the images
     preload () {
     //sky needs to be larger to fit the world bounds
-    this.load.image('sky', './assets/images/sky.png');
+    this.load.image('ninja', './assets/images/game_background.png');
     //Play button
     this.load.image('play', './assets/images/play.png')
     //How to play button
@@ -14,8 +14,8 @@ class HowToPlay extends Phaser.Scene {
     };
 
     create (){
-    //adding sky
-    let background = this.add.image(50, 0, 'sky');
+    //adding ninja
+    let background = this.add.image(50, 0, 'ninja');
     //Some text
     //buttons click events
 

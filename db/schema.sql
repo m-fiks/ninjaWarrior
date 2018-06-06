@@ -13,10 +13,5 @@ CREATE TABLE ninjaTables
 );
 
 INSERT INTO ninjaTables (username, score) VALUES ('ninja0', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja2', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja3', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja4', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja5', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja6', '200');
-INSERT INTO ninjaTables (username, score) VALUES ('ninja7', '200');
+
 

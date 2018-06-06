@@ -47,7 +47,7 @@ module.exports = function(app){
             
 
         }).then(function(dbUser){
-            console.log(dbUser);
+            // console.log(dbUser);
             res.json(dbUser);
             //db.ninjaTables.findAll({ attributes: ['score'] }).then(function(dbUser){    
             //console.log(dbUser)
