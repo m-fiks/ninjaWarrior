@@ -172,7 +172,7 @@ if (cursors.up.isDown)
         let data = {
             "score": score
         }
-        $("#target").append(`times up! your score is: ${score}`);
+        alert(`times up! your score is: ${score}`);
 
         $.ajax({
             type: "PUT",
@@ -188,7 +188,7 @@ if (cursors.up.isDown)
 
         //send to scoreboard
         this.scene.start("Score")
-        game.destroy();
+        //game.destroy();
     }
    
 };
