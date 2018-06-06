@@ -35,7 +35,7 @@ create () {
     //ORDER HERE IS IMPORTANT
 
     //adding sky
-    let background = this.add.image(400, 300, 'main');
+    let background = this.add.image(2200, 300, 'main');
     //create platforms
     //let platforms = this.physics.add.staticGroup();
     let ground = this.physics.add.staticGroup();
@@ -129,13 +129,11 @@ create () {
     }
 
     //score business
-    let scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-    scoreText = this.add.text(2250, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-    //scoreText = this.add.text(3000, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-   
+    scoreText = this.add.text(50, 350, `score: ${score}`, { fontSize: '32px', fill: '#000000' });
 };
 
 update () {
+
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
@@ -156,6 +154,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
+        scoreText.x = scoreText.x += 1;
     }
 else
     {
@@ -172,7 +171,7 @@ if (cursors.up.isDown)
         let data = {
             "score": score
         }
-        $("#target").append(`times up! your score is: ${score}`);
+        alert(`times up! your score is: ${score}`);
 
         $.ajax({
             type: "PUT",
@@ -188,7 +187,7 @@ if (cursors.up.isDown)
 
         //send to scoreboard
         this.scene.start("Score")
-        game.destroy();
+        //game.destroy();
     }
    
 };
