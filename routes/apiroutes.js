@@ -41,12 +41,14 @@ module.exports = function(app){
 
     app.get('/api/scores', (req,res) => {
         db.ninjaTables.findAll({  
-            where: {
-                score: 200
-            }
+            //include : [{model : DB.User, limit 5}],
+            order : [['score', 'DESC']],
+            limit : 5
+            
 
         }).then(function(dbUser){
             console.log(dbUser);
+            res.json(dbUser);
             //db.ninjaTables.findAll({ attributes: ['score'] }).then(function(dbUser){    
             //console.log(dbUser)
             //console.log(res.json(dbUser) + "this is the api scores route");
