@@ -3,7 +3,11 @@
 const Sequelize = require('sequelize');
 
 //Creates MySQL connection using Sequelize 
+<<<<<<< HEAD
+const sequelize = new Sequelize('ninjawarrior_db', 'root','Badminton1!', {
+=======
 const sequelize = new Sequelize('ninjawarrior_db', 'root', '', {
+>>>>>>> master
     host: 'localhost',
     dialect: 'mysql',
   
