@@ -34,7 +34,7 @@ class mainMenu extends Phaser.Scene {
 
 
     help.on('pointerdown', function (event) {
-        this.scene.start("Scene2")
+        this.scene.start("HowToPlay")
     }, this);
     };
 

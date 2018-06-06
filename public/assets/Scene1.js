@@ -129,13 +129,11 @@ create () {
     }
 
     //score business
-    let scoreText = this.add.text(50, 350, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-    scoreText = this.add.text(2250, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-    //scoreText = this.add.text(3000, 350, `score: ${score}`, { fontSize: '32px', fill: '#ffffff' });
-   
+    scoreText = this.add.text(50, 350, `score: ${score}`, { fontSize: '32px', fill: '#000000' });
 };
 
 update () {
+
 //let user control with arrow keys    
 //timer
 this.timedEvent = this.time.addEvent({
@@ -156,6 +154,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
+        scoreText.x = scoreText.x += 1;
     }
 else
     {
