@@ -33,7 +33,6 @@ preload () {
 
 create () {
     //ORDER HERE IS IMPORTANT
-
     //adding sky
     let background = this.add.image(2200, 300, 'main');
     //create platforms
@@ -47,8 +46,9 @@ create () {
 
     //obstacles.create(500,500, 'steps').refreshBody();
     //this.platforms.create(450,650,'barrel')
-    this.platforms.create(450, 650, 'spin1')
-    this.platforms.create(450, 600, 'spin2')
+    let spin1 = this.platforms.create(450, 650, 'spin1')
+    spin1 = this.platforms.create(450, 600, 'spin2')
+
 
     //steps
     this.platforms.create(850, 698, 'steps1')
@@ -184,10 +184,9 @@ if (cursors.up.isDown)
             //add data.score to db
             //send to score screen
         })
-
+        score = 0;
         //send to scoreboard
         this.scene.start("Score")
-        //game.destroy();
     }
    
 };
