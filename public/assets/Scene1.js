@@ -2,8 +2,6 @@ let player;
 let score = 0;
 let scoreText = "";
 let newScore = "";
-// I managed to restart the same scene by doing:
-// this.scene.manager.bootScene(this);
 
 class Scene1 extends Phaser.Scene {
     constructor() {
@@ -123,13 +121,12 @@ create () {
 
     function collectStars (player, star){
         star.disableBody(true, true);
-
         score += 10;
         scoreText.setText('Score: ' + score);
     }
 
     //score business
-    scoreText = this.add.text(50, 350, `score: ${score}`, { fontSize: '32px', fill: '#000000' });
+    scoreText = this.add.text(50, 350, `score: 0`, { fontSize: '32px', fill: '#000000' });
 };
 
 update () {
@@ -184,9 +181,16 @@ if (cursors.up.isDown)
             //add data.score to db
             //send to score screen
         })
-        score = 0;
         //send to scoreboard
-        this.scene.start("Score")
+        gameOver();
+        this.scene.stop("Scene1");
+        this.scene.start("Score");
+        
+    }
+
+    function gameOver () {
+        score = 0;
+        gameOver = true;
     }
    
 };
