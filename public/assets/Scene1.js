@@ -52,8 +52,8 @@ create () {
     //steps
     this.platforms.create(850, 698, 'steps1')
     this.platforms.create(930, 669, 'steps2')
-    this.platforms.create(1010, 635, 'steps3')
-    this.platforms.create(1089, 596, 'steps4')
+    this.platforms.create(1005, 635, 'steps3')
+    this.platforms.create(1084, 596, 'steps4')
 
     //steps 2
     this.platforms.create(1650, 698, 'steps1')
@@ -153,7 +153,7 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
-        scoreText.x = scoreText.x += 2;
+        scoreText.x = scoreText.x += 1;
     }
 else
     {
