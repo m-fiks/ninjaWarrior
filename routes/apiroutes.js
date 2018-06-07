@@ -43,21 +43,10 @@ module.exports = function(app){
         db.ninjaTables.findAll({  
             //include : [{model : DB.User, limit 5}],
             order : [['score', 'DESC']],
-            limit : 5
-            
-
-        }).then(function(dbUser){
-            // console.log(dbUser);
-            res.json(dbUser);
-            //db.ninjaTables.findAll({ attributes: ['score'] }).then(function(dbUser){    
-            //console.log(dbUser)
-            //console.log(res.json(dbUser) + "this is the api scores route");
-            //console.log(dbUser[0].dataValues.username);
-            //console.log(dbUser[0].dataValues.score);
-            //res.json(dbUser)
+            limit : 10
+        }).then(function(ninjaScore){
+            res.json(ninjaScore);
         });
-        //console.log(req + "this is the request")
-        //console.log(res + "this is the response");
     });
 
     //Get specific character route
