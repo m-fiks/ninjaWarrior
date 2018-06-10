@@ -19,10 +19,13 @@ class Score extends Phaser.Scene {
     let main = this.add.text(225,0, 'End!', {font:"40px Impact", fill: "#000000"});
     //buttons click events
 
-    let scores = this.add.text(350, 190, 'Score', {font:"25px Impact", fill:'#ffffff'}).setInteractive();
+    let scores = this.add.text(450, 190, 'Score', {font:"25px Impact", fill:'#ffffff'}).setInteractive();
     let user = this.add.text(250, 190, 'User', {font:"25px Impact", fill:'#ffffff'})
-    allScores = this.add.text(350, 220, 'HOWDY',  {font:"25px Impact", fill:'#ffffff'})
+    
+    allScores = this.add.text(450, 220, 'HOWDY',  {font:"25px Impact", fill:'#ffffff'})
     allUsername = this.add.text(250, 220, 'JHJKH',  {font:"25px Impact", fill:'#ffffff'})
+    
+    
     // let data = 
     // $.ajax({
     //     type: 'POST',
