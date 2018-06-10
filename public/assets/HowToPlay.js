@@ -19,7 +19,7 @@ class HowToPlay extends Phaser.Scene {
     //Some text
     //buttons click events
 
-    play = this.add.text(250, 190, 'To play this game use the arrow keys!', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
+    play = this.add.text(75, 150, `To play this game use the arrow keys! \n Try to collect as many stars \n as possible before the timer runs out!`, {font:"20px Impact", fill:'#ffffff'}).setInteractive();
     
     play.on('pointerdown', function (event) {
         this.scene.start("Scene1")
@@ -28,7 +28,7 @@ class HowToPlay extends Phaser.Scene {
 
     // let helpButton = this.add.image(300, 260, 'help');
 
-    let back = this.add.text(400, 190, 'Main Menu', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
+    let back = this.add.text(250, 300, 'Main Menu', {font:"20px Impact", fill:'#ffffff'}).setInteractive();
 
 
     back.on('pointerdown', function (event) {
