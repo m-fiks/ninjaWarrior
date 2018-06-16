@@ -3,7 +3,7 @@
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('ninjawarrior_db', 'root', 'root', {
+const sequelize = new Sequelize('ninjawarrior_db', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 
