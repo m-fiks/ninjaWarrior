@@ -43,7 +43,7 @@ module.exports = function(app){
         db.ninjaTables.findAll({  
             //include : [{model : DB.User, limit 5}],
             order : [['score', 'DESC']],
-            limit : 10
+            limit : 5
         }).then(function(ninjaScore){
             res.json(ninjaScore);
         });
