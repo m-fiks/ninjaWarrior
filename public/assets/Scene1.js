@@ -153,16 +153,16 @@ else if (cursors.right.isDown)
     {
         player.setVelocityX(125);
         player.anims.play('right', true);
-        scoreText.x = scoreText.x += 1;
+        scoreText.x = scoreText.x += 1.315;
     }
 else
     {
         player.setVelocityX(0);
         player.anims.play('turn');
     }
-if (cursors.up.isDown)
+if (cursors.up.isDown && (player.body.onFloor() || player.body.touching.down))
     {
-        player.setVelocityY(-85);
+        player.setVelocityY(-275);
     }
 
     function onEvent () {
